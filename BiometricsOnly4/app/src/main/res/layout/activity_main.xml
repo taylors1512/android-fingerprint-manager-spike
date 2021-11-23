@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pale_rouge"
+        android:padding="8dp"
+        android:text="App name: Iteration 4\nDescription: Fingerprint change detection done before fingerprint prompt\nLibrary: androidx.core.hardware.fingerprint.FingerprintManagerCompat\ncompileSdkVersion: 31, targetSdkVersion: 31, minSdkVersion: 26"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".activity.MainActivity"
+            tools:ignore="HardcodedText">
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/sectionSetup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="headingSetup,labelIsDeviceProtectedByPin,labelHasHardware,labelDeviceHasAtLeastOneFingerprintRegistered,valueIsDeviceProtectedByPin,valueHasHardware,valueDeviceHasAtLeastOneFingerprintRegistered"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/headingSetup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Setup"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/labelIsDeviceProtectedByPin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:text="Is Device Protected By PIN / Password"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/headingSetup" />
+
+            <TextView
+                android:id="@+id/valueIsDeviceProtectedByPin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Pending..."
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/labelIsDeviceProtectedByPin" />
+
+            <TextView
+                android:id="@+id/labelHasHardware"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Has fingerprint hardware"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelIsDeviceProtectedByPin" />
+
+            <TextView
+                android:id="@+id/valueHasHardware"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:background="#F5F5F5"
+                android:text="Pending..."
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintBottom_toBottomOf="@+id/labelHasHardware"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/labelHasHardware" />
+
+            <TextView
+                android:id="@+id/labelDeviceHasAtLeastOneFingerprintRegistered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Device has at least one fingerprint registered"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelHasHardware" />
+
+            <TextView
+                android:id="@+id/valueDeviceHasAtLeastOneFingerprintRegistered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Pending..."
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/labelDeviceHasAtLeastOneFingerprintRegistered" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/sectionRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="headingRegister,sectionSecurityChecks"
+                tools:visibility="visible" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/sectionSecurityChecks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="editableLayoutEnterUsername,editableLayoutEnterPassword,editableLayoutEnterSecurityPin,buttonSubmitSecurityChecks"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/headingRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="Register"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/labelDeviceHasAtLeastOneFingerprintRegistered" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editableLayoutEnterUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/headingRegister">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editableEnterUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter username (abc)"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editableLayoutEnterPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editableLayoutEnterUsername">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editableEnterPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter password (xyz)"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editableLayoutEnterSecurityPin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editableLayoutEnterPassword">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editableEnterSecurityPin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter security pin (123)"
+                    android:maxLines="1" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/buttonSubmitSecurityChecks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:text="Submit security checks"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editableLayoutEnterSecurityPin" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/sectionAllowBiometrics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="textSecurityChecksPassed,buttonAllowBiometricLogin" />
+
+            <TextView
+                android:id="@+id/textSecurityChecksPassed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:drawablePadding="16dp"
+                android:text="Security Checks passed!\n\nThis means you have verified your identity. Now that you have proven who you are, tap 'allow biometric login' below so that you don't need to do the Security Checks every time you want to use the app.\n\nHowever, beware if you have other people's biometrics registered to your device. These people will be able to log in to the app with their biometrics if you continue without removing them from your device.\n\nNote: If you exit the app now, we will get you to undertake the registration with Security Checks again to keep access to the app as secure as possible."
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:drawableTopCompat="@drawable/ic_security_passed_resized"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buttonSubmitSecurityChecks" />
+
+            <Button
+                android:id="@+id/buttonAllowBiometricLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="Allow biometric login"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textSecurityChecksPassed" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/sectionFirstLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:constraint_referenced_ids="textBiometricLoginEnabled,buttonLogin" />
+
+            <TextView
+                android:id="@+id/textBiometricLoginEnabled"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
+                android:drawablePadding="16dp"
+                android:text="Biometric Login Enabled!\n\nWe have now awoken the 'Android Keystore' and created a Secret Key and Cipher. The Secret Key is a secure object that helps with encrypting data. The Cipher is an object that wraps your Secret Key, and uses it to provide encryption or decryption of data. Finally, the cipher is wrapped by a 'CryptoObject' which the Android framework's biometric authentication uses to prove that your biometrics have not changed, been tampered with or hacked. This is all made possible by your Secret Key that was created in the Android Keystore.\n\nIf your device's enrolled biometrics change when you next return to the app, we will reset the registration and undertake the Security Checks again to verify your identity.\n\nTap the button below to log in with your biometrics."
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:drawableTopCompat="@drawable/ic_registration_success_resized"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/buttonAllowBiometricLogin" />
+
+            <Button
+                android:id="@+id/buttonLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="Login"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textBiometricLoginEnabled" />
+
+            <TextView
+                android:id="@+id/textGeneralLogin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="You are a fully registered user.\n\nPlease confirm your biometrics to login."
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/animSpinningLogo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="48dp"
+                android:src="@drawable/img_spinning_logo"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>
